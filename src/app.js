@@ -1,11 +1,20 @@
 const express = require('express');
+const { obterEstoque } = require('./routes/routes.js'); // Importar o módulo
+
 const app = express();
+const port = 3000;
 
-app.use(express.json());
+app.get('/estoque/:idProduto', async (req, res) => {
+  const { idProduto } = req.params;
 
-app.get('/api/hello', (req, res) => {
-    res.json({ message: 'Hello, World!' });
+  try {
+    const dadosEstoque = await obterEstoque(idProduto); // Chama a função do módulo
+    res.json(dadosEstoque); // Retorna os dados no formato JSON
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao obter informações de estoque.' });
+  }
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
