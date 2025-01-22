@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="announcement-bar">
+            <span>Nós somos a Grifes & Estilo. Uma loja completa.</span>
+        </div>
+        <div class="header-main">
+            <div class="logo-container">
+                <img src="#" alt="Logo of Grifes & Estilo" class="logo">
+            </div>
+            <div class="search-container">
+                <button id="search-btn" class="search-icon" aria-label="Search">&#128269;</button>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search here" 
+                    onkeypress="handleKeyPress(event)">
+            </div>
+            <nav class="header-navigation user-navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="nav-icon" aria-label="Customer Support">&#128172;</button>
+                        <a href="#">Atendimento</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-icon" aria-label="Favorites">&#9733;</button>
+                        <a href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-icon" aria-label="Account">&#128100;</button>
+                        <a href="#">Conta</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-icon" aria-label="Cart">&#128722;</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <hr class="divider">
+        <nav class="header-navigation category-navigation">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#">Perfumes e Perfumaria</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Beleza e Cuidado Pessoal</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Bem-Estar e Saúde</a>
+                </li>
+                <li class="nav-item" id="promos">
+                    <a href="#">Promoções</a>
+                </li>
+                <li class="nav-item" id="brands">
+                    <a href="#">Marcas</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="banner">
+                <img src="#" alt="banner-carrosel">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const searchButton = document.getElementById('search-btn');
+        const searchInput = document.getElementById('search-input');
+
+        // Função para realizar a pesquisa
+        function search() {
+        const query = searchInput.value.trim();
+        if (query) {
+            alert(`Você pesquisou por: ${query}`);
+            // Aqui você pode substituir o alert pela lógica de busca, como redirecionar ou filtrar dados.
+        } else {
+            alert('Por favor, insira um termo de pesquisa.');
+        }
+        }
+
+        // Evento de clique no botão
+        searchButton.addEventListener('click', search);
+
+        // Evento de pressionar "Enter" no campo de texto
+        function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            search();
+        }
+        }
+    </script>
+</body>
+</html>
